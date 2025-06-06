@@ -134,6 +134,16 @@ body {
 .interpolation-panel {
   background: #f5f5f5;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interpolation-panel img,
+.interpolation-panel video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .interpolation-panel .interpolation-image {
@@ -150,7 +160,7 @@ body {
 
 .interpolation-panel .interpolation-video-column img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .loading {
@@ -189,7 +199,12 @@ body {
 
 .interpolation-container {
   width: 400px;
-  margin: 10px;
+  margin: 5px;
+}
+
+.interpolation-container-wide {
+  width: 900px;
+  margin: 5px;
 }
 
 .sliders-container{
