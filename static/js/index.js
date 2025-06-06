@@ -21,6 +21,10 @@ function preloadInterpolationImages(callback) {
         }
       };
       img.src = `./static/interpolation/${folder}/${String(i)}.webp`;
+      // Try PNG if WebP fails
+      img.onerror = function() {
+        img.src = `./static/interpolation/${folder}/${String(i)}.png`;
+      };
       preloadedImages[folder][i] = img;
     }
   });

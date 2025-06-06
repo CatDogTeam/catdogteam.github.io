@@ -461,6 +461,122 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width"> 
+        <div class="has-text-centered title is-3">FLUX Schnell</div>
+        <p>
+          We also trained a SAE on FLUX Schnell.
+        </p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-full-width"> 
+        <div class="sliders-container" id="flux-schnell-containers">
+          <script>
+            // Configuration object for multistep folders
+            const configfluxschnell = {
+              fluxschnellfolders: [
+                'flux_schnell_cat',
+                'flux_schnell_comic',
+                'flux_schnell_evil',
+                'flux_schnell_fire',
+                'flux_schnell_manga',
+                'flux_schnell_sand'
+              ]
+            };
+
+            // Function to create interpolation containers
+            function createMultistepContainers() {
+              const container = document.getElementById('flux-schnell-containers');
+              
+              // Create container for each folder from config
+              configfluxschnell.fluxschnellfolders.forEach(folder => {
+                const div = document.createElement('div');
+                div.className = 'interpolation-container';
+                div.dataset.folder = folder;
+                div.dataset.frames = '6';
+
+                const h3 = document.createElement('h3');
+                h3.className = 'title is-4';
+                h3.textContent = folder
+                  .replace('flux_schnell_', '')
+                
+                div.appendChild(h3);
+                div.appendChild(document.createComment(' Slider will be dynamically added here '));
+                
+                container.appendChild(div);
+              });
+            }
+
+            // Call the function when document is ready
+            document.addEventListener('DOMContentLoaded', createMultistepContainers);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width"> 
+        <div class="has-text-centered title is-3">FLUX dev</div>
+        <p>
+          Our FLUX Schnell SAE also transfers to FLUX dev.
+        </p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-full-width"> 
+        <div class="sliders-container" id="flux-dev-containers">
+          <script>
+            // Configuration object for multistep folders
+            const configfluxdev = {
+              fluxdevfolders: [
+                'flux_dev_cat',
+                'flux_dev_comic',
+                'flux_dev_evil',
+                'flux_dev_fire',
+                'flux_dev_manga',
+                'flux_dev_sand'
+              ]
+            };
+
+            // Function to create interpolation containers
+            function createMultistepContainers() {
+              const container = document.getElementById('flux-dev-containers');
+              
+              // Create container for each folder from config
+              configfluxdev.fluxdevfolders.forEach(folder => {
+                const div = document.createElement('div');
+                div.className = 'interpolation-container';
+                div.dataset.folder = folder;
+                div.dataset.frames = '6';
+
+                const h3 = document.createElement('h3');
+                h3.className = 'title is-4';
+                h3.textContent = folder
+                  .replace('flux_dev_', '')
+                
+                div.appendChild(h3);
+                div.appendChild(document.createComment(' Slider will be dynamically added here '));
+                
+                container.appendChild(div);
+              });
+            }
+
+            // Call the function when document is ready
+            document.addEventListener('DOMContentLoaded', createMultistepContainers);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
