@@ -6,7 +6,7 @@ let totalImagesToLoad = 0;
 let loadedImages = 0;
 
 function preloadInterpolationImages(callback) {
-  $('.interpolation-container').each(function() {
+  $('.interpolation-container, .interpolation-container-wide').each(function() {
     const folder = this.dataset.folder;
     const frames = parseInt(this.dataset.frames);
     preloadedImages[folder] = [];
@@ -53,7 +53,6 @@ function createInterpolationSlider(container) {
 
   $(`#${sliderId}`).on('input', function(event) {
     const image = preloadedImages[folder][this.value];
-    
     setInterpolationImage(imageWrapperId, image);
   });
   // Set initial image
@@ -73,75 +72,50 @@ $(document).ready(function() {
       // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
-      $('.interpolation-container').each(function() {
+      $('.interpolation-container, .interpolation-container-wide').each(function() {
         createInterpolationSlider(this);
       });
-
     });
 
     var options = {
-			slidesToScroll: 3,
-			slidesToShow: 5,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
+      slidesToScroll: 3,
+      slidesToShow: 5,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      autoplaySpeed: 3000,
       pagination: false
     }
-		// Initialize all div with carousel class
+    // Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
 
     // Access to bulmaCarousel instance of an element
     var element = document.querySelector('#my-element');
     if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
+      // bulmaCarousel instance is available as element.bulmaCarousel
+      element.bulmaCarousel.on('before-show', function(state) {
+        console.log(state);
+      });
     }
 
-    // // Loop on each carousel initialized
-    // for(var i = 0; i < carousels.length; i++) {
-    // 	// Add listener to  event
-    // 	carousels[i].on('before:show', state => {
-    // 		console.log(state);
-    // 	});
-    // }
-
-    // // Access to bulmaCarousel instance of an element
-    // var element = document.querySelector('#my-element');
-    // if (element && element.bulmaCarousel) {
-    // 	// bulmaCarousel instance is available as element.bulmaCarousel
-    // 	element.bulmaCarousel.on('before-show', function(state) {
-    // 		console.log(state);
-    // 	});
-    // }
-
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
     preloadInterpolationImages(function() {
       // Remove loading indicator
       $('#global-loading').remove();
 
-      // Create sliders for each interpolation-container
-      $('.interpolation-container').each(function() {
+      // Create sliders for each interpolation container
+      $('.interpolation-container, .interpolation-container-wide').each(function() {
         createInterpolationSlider(this);
       });
 
       // Enable sliders
-      $('.interpolation-container input[type="range"]').prop('disabled', false);
+      $('.interpolation-container input[type="range"], .interpolation-container-wide input[type="range"]').prop('disabled', false);
     });
 
     // Disable sliders until images are loaded
-    $('.interpolation-container input[type="range"]').prop('disabled', true);
+    $('.interpolation-container input[type="range"], .interpolation-container-wide input[type="range"]').prop('disabled', true);
 
     // Show loading indicator
     $('body').append('<div id="global-loading" class="loading">Loading images...</div>');
 
-    bulmaSlider.attach('.interpolation-container input[type="range"]');
+    bulmaSlider.attach('.interpolation-container input[type="range"], .interpolation-container-wide input[type="range"]');
 })

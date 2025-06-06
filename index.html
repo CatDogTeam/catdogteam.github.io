@@ -577,6 +577,129 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width"> 
+        <div class="has-text-centered title is-3">RIEBench</div>
+        <p>
+          We introduce a new representation-based image editing benchmark, RIEBench. The key idea is to transfer features between parallell forward passes as shown below. 
+          Dragging the slider corresponds to varying number of features transferred across within the indicated blocks. We precomputed results for a <b>SAE</b> with k=10 and expansion factor 4 transporting <b>1, 2, 4, 8, 16, 32, 64</b> features.
+        </p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-full-width"> 
+        <div class="sliders-container" id="animation-containers">
+          <script>
+            // Configuration object for multistep folders
+            const configanimation = {
+              folders: [
+                'animation_10_4_down',
+                'animation_10_4_up01',
+                'animation_10_4_up00',
+                'animation_10_4_mid',
+                'animation_10_4_all'
+              ]
+            };
+
+            // Function to create interpolation containers
+            function createMultistepContainers() {
+              const container = document.getElementById('animation-containers');
+              
+              // Create container for each folder from config
+              configanimation.folders.forEach(folder => {
+                const div = document.createElement('div');
+                div.className = 'interpolation-container-wide';
+                div.dataset.folder = folder;
+                div.dataset.frames = '7';
+
+                const h3 = document.createElement('h3');
+                h3.className = 'title is-4';
+                h3.textContent = folder
+                  .replace('animation_10_4_', '')
+                  .replace('down','down.2.1')
+                  .replace('up00','up.0.0')
+                  .replace('up01','up.0.1')
+                  .replace('mid','mid.0')
+                
+                div.appendChild(h3);
+                div.appendChild(document.createComment(' Slider will be dynamically added here '));
+                
+                container.appendChild(div);
+              });
+            }
+
+            // Call the function when document is ready
+            document.addEventListener('DOMContentLoaded', createMultistepContainers);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width"> 
+        <p>
+          The same intervention can be performed for <b>neurons</b>. 
+          Dragging the slider corresponds to varying number of features transferred across within the indicated blocks. We precomputed results for transporting <b>1000, 2000, 4000, 8000, 160000, 32000, 64000</b> neurons.
+          For more information check out our <a href="https://github.com/wendlerc/RIEBench" target="_blank">RIEBench repository</a>.
+        </p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-full-width"> 
+        <div class="sliders-container" id="neuron-animation-containers">
+          <script>
+            // Configuration object for multistep folders
+            const configneuronanimation = {
+              folders: [
+                'animation_neurons_10_4_down',
+                'animation_neurons_10_4_up01',
+                'animation_neurons_10_4_up00',
+                'animation_neurons_10_4_mid',
+                'animation_neurons_10_4_all'
+              ]
+            };
+
+            // Function to create interpolation containers
+            function createMultistepContainers() {
+              const container = document.getElementById('neuron-animation-containers');
+              
+              // Create container for each folder from config
+              configneuronanimation.folders.forEach(folder => {
+                const div = document.createElement('div');
+                div.className = 'interpolation-container-wide';
+                div.dataset.folder = folder;
+                div.dataset.frames = '7';
+
+                const h3 = document.createElement('h3');
+                h3.className = 'title is-4';
+                h3.textContent = folder
+                  .replace('animation_neurons_10_4_', '')
+                  .replace('down','down.2.1')
+                  .replace('up00','up.0.0')
+                  .replace('up01','up.0.1')
+                  .replace('mid','mid.0')
+                
+                div.appendChild(h3);
+                div.appendChild(document.createComment(' Slider will be dynamically added here '));
+                
+                container.appendChild(div);
+              });
+            }
+
+            // Call the function when document is ready
+            document.addEventListener('DOMContentLoaded', createMultistepContainers);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <section class="section is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
