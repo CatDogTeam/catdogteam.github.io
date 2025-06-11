@@ -228,7 +228,7 @@ body {
 }
 
 .top-image {
-  width: 300px;
+  width: 400px;
   height: auto;
   margin: 15px;
   text-align: center;
@@ -237,6 +237,8 @@ body {
 .zero-image {
   margin: 10px;
   text-align: center;
+  width: 400px;
+  height: auto;
 }
 
 .results-carousel {
